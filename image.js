@@ -87,5 +87,21 @@ window.onload = function () {
 };
 
 
+// Done with CSS
+/*
+image.onmouseover = function () {
+    image.style.maxHeight = 'auto';
+    image.style.maxWidth = 'auto';
+
+    image.style.minHeight = '500px';
+    image.style.minWidth = '500px';
+};
+image.onmouseout = function () {
+    image.style.minHeight = 'auto';
+    image.style.minWidth = 'auto';
+
+    image.style.maxHeight = '100px';
+    image.style.maxWidth = '100px';
+};*/
 
 
