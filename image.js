@@ -46,16 +46,13 @@ window.onload = function () {
         var images = document.getElementsByTagName("img");
 
         // Loops over all images to remove the ones with the selected URL
-        for (var i = 0; i < images.length; i++) {
-            var image = images[i];
-
+         Array.from(images).forEach(function (image) {
             // If source matches, removes image
             if (image.src === imageToRemove) {
                 image.remove();
                 found = true;
             }
-        }
-
+        });
 
         if (found) {
             // Gets planning area; if it is empty, put some dots
