@@ -57,5 +57,20 @@ window.onload = function () {
         }
 
 
+        if (found) {
+            // Gets planning area; if it is empty, put some dots
+            var planningArea = document.getElementById('planning-area');
+
+            if (planningArea.innerHTML === '') {
+                planningArea.innerHTML = '...';
+            }
+        } else {
+            showError('Image to remove not found');
+        }
+
+        // Resets image input
+        imageInput.value = '';
+    };
+
 
 
