@@ -19,5 +19,18 @@ window.onload = function () {
             image.onclick = function () {
                 imageInput.value = imageURL;
             };
+            // Gets planning area and remove initial dots
+            var planningArea = document.getElementById('planning-area');
+
+            if (planningArea.innerHTML === '...') {
+                planningArea.innerHTML = '';
+            }
+
+            // Adds image
+            planningArea.appendChild(image);
+        } else {
+            showError('Image URL is not valid');
+        }
+    };
 
 
