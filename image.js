@@ -32,5 +32,15 @@ window.onload = function () {
             showError('Image URL is not valid');
         }
     };
+    // Delete button click
+    document.getElementById('delete').onclick = function () {
+        // Cleans any previous error message
+        cleanError();
+
+        // Gets image input and its value
+        var imageInput = document.getElementById('image-url');
+        var imageToRemove = imageInput.value;
+        var found = false;
+
 
 
