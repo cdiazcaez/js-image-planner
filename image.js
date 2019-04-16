@@ -42,5 +42,20 @@ window.onload = function () {
         var imageToRemove = imageInput.value;
         var found = false;
 
+        // Gets all images
+        var images = document.getElementsByTagName('img');
+
+        // Loops over all images to remove the ones with the selected URL
+        for (var i = 0; i < images.length; i++) {
+            var image = images[i];
+
+            // If source matches, removes image
+            if (image.src === imageToRemove) {
+                image.remove();
+                found = true;
+            }
+        }
+
+
 
 
