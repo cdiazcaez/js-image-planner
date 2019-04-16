@@ -28,3 +28,10 @@ img {
     max-height: 100px;
     cursor: pointer;
 }
+
+img:hover {
+    max-width: auto;
+    max-height: auto;
+    min-width: 500px;
+    min-height: 500px;
+}
