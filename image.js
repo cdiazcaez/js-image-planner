@@ -1,4 +1,18 @@
+/*jslint browser */
+/*global window */
+
 window.onload = function () {
+    function showError(error) {
+        document.getElementById("error-message").innerHTML = error;
+    }
+    function cleanError() {
+        document.getElementById("error-message").innerHTML = "";
+    }
+
+    function isURL(str) {
+        var regexp = /^(?:(?:https?|ftp):\/\/)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/\S*)?$/;
+        return regexp.test(str);
+    }
 
     // Add button click
     document.getElementById("add").onclick = function () {
@@ -19,6 +33,7 @@ window.onload = function () {
             image.onclick = function () {
                 imageInput.value = imageURL;
             };
+
             // Gets planning area and remove initial dots
             var planningArea = document.getElementById("planning-area");
 
@@ -32,6 +47,7 @@ window.onload = function () {
             showError("Image URL is not valid");
         }
     };
+
     // Delete button click
     document.getElementById("delete").onclick = function () {
         // Cleans any previous error message
@@ -46,7 +62,7 @@ window.onload = function () {
         var images = document.getElementsByTagName("img");
 
         // Loops over all images to remove the ones with the selected URL
-         Array.from(images).forEach(function (image) {
+        Array.from(images).forEach(function (image) {
             // If source matches, removes image
             if (image.src === imageToRemove) {
                 image.remove();
@@ -68,37 +84,4 @@ window.onload = function () {
         // Resets image input
         imageInput.value = "";
     };
-
-
-    function showError(error) {
-        document.getElementById("error-message").innerHTML = error;
-    }
-    function cleanError() {
-        document.getElementById("error-message").innerHTML = "";
-    }
-
-    function isURL(str) {
-        regexp = /^(?:(?:https?|ftp):\/\/)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/\S*)?$/;
-        return regexp.test(str);
-    }
 };
-
-
-// Done with CSS
-/*
-image.onmouseover = function () {
-    image.style.maxHeight = 'auto';
-    image.style.maxWidth = 'auto';
-
-    image.style.minHeight = '500px';
-    image.style.minWidth = '500px';
-};
-image.onmouseout = function () {
-    image.style.minHeight = 'auto';
-    image.style.minWidth = 'auto';
-
-    image.style.maxHeight = '100px';
-    image.style.maxWidth = '100px';
-};*/
-
-
